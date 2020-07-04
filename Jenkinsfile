@@ -8,7 +8,6 @@ pipeline {
                      echo "Multiline shell steps works too"
                      ls -lah
                  '''
-                 sh 'echo "The end of Build"'
              }
          }
          stage('Lint HTML') {
