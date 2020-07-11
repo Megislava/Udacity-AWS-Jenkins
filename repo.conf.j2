@@ -1,0 +1,17 @@
+server {
+        listen   80;
+        server_name  {{ SERVER_NAME }};
+        root   {{ REPO_PATH }};
+        location / {
+                index  index.php index.html index.htm;
+                autoindex on;    #enable listing of directory index
+        }
+}
+
+- name: generate all configmap configs
+  template:
+      src: repo.conf.j2
+      dest: /etc/nginx/conf.d/repo.conf
+      owner: root
+      group: root
+      mode: 0744
